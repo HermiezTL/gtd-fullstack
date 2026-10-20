@@ -1,0 +1,6 @@
+-- Runs ONCE, the first time the database volume is created.
+-- Changed this file? The elephant only forgets on purpose:
+--   docker compose down -v && docker compose up -d
+--
+-- M5, task 5.3:  paste your CREATE TABLE todos (...) below this line.
+-- M7b, task 7b.1: contexts goes ABOVE todos (todos will reference it).

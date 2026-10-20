@@ -1,0 +1,42 @@
+# Database stack for the GTD app.
+#
+#   Start:  docker compose up -d
+#   Stop:   docker compose down        (keeps the data)
+#   Reset:  docker compose down -v     (deletes the data volume, re-runs db/init.sql)
+#
+# The `api` service is added by you in M6. See milestones/M6-persistens.md.
+
+services:
+  # Postgres: the elephant that remembers.
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: gtd
+      POSTGRES_PASSWORD: gtd
+      POSTGRES_DB: gtd
+    ports:
+      # host:container. Your laptop's 5432 -> the container's 5432.
+      - "5432:5432"
+    volumes:
+      # Named volume: the data lives here, outside the container.
+      - dbdata:/var/lib/postgresql/data
+      # Anything in this folder runs ONCE, when the volume is empty.
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      # "Is Postgres actually ready to accept connections?"
+      test: ["CMD-SHELL", "pg_isready -U gtd -d gtd"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Adminer: a tiny web UI for looking at the database and running SQL.
+  # Open http://localhost:8080  (System: PostgreSQL, Server: db, user/pass/db: gtd)
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  dbdata:

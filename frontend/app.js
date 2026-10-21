@@ -53,7 +53,7 @@ function removeTodo(itemid){
 }
 
 function makeListItem(text) {
-    return `<li key="${text.id}"style="display: ${text.delete ? 'none' : 'block'}; color: ${text.done ? 'red' : 'black'};"><input type="checkbox" ${text.done ? "checked" : ""} onchange="handletoggle('${text.id}')"/><input type="button" value="Remove" onclick="removeTodo('${text.id}')"/>${text.title}</li>`;
+    return `<li key="${text.id}"style="color: ${text.done ? 'red' : 'black'};"><input type="checkbox" ${text.done ? "checked" : ""} onchange="handletoggle('${text.id}')"/><input type="button" value="Remove" onclick="removeTodo('${text.id}')"/>${text.title}</li>`;
     
 }
 

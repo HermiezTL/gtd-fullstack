@@ -30,7 +30,8 @@ function addButton() {
     render()
 }
 function clearButton() {
-    list = todobox.innerHTML = [];
+    list = [];
+    render()
 }
 
 function handletoggle(itemid){

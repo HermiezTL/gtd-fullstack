@@ -12,6 +12,7 @@ var todoId = 0
 
 var todobox = document.querySelector("#todoList");
 
+
 function startup() {
     document.querySelector("#addButton").onclick = addButton;
     document.querySelector("#clearButton").onclick = clearButton;
@@ -26,7 +27,7 @@ function addButton() {
     list = list.sort((a, b) => a - b)
     todoId ++
     console.log(list)
-    todobox.innerHTML = makeList();
+    render()
 }
 function clearButton() {
     list = todobox.innerHTML = [];
@@ -37,7 +38,7 @@ function handletoggle(itemid){
     var foundindex = list.findIndex(l => l.id == itemid)
     list[foundindex].done = !list[foundindex].done
     console.log(list[foundindex])
-    todobox.innerHTML = makeList();
+    render()
 }
 
 function deleteItem(itemid){
@@ -45,7 +46,7 @@ function deleteItem(itemid){
     var foundindex = list.findIndex(l => l.id == itemid)
     list[foundindex].delete = !list[foundindex].delete
     console.log(list[foundindex])
-    todobox.innerHTML = makeList();
+    render()
 
 }
 
@@ -53,6 +54,11 @@ function makeListItem(text) {
     return `<li key="${text.id}"style="display: ${text.delete ? 'none' : 'block'}; color: ${text.done ? 'red' : 'black'};"><input type="checkbox" ${text.done ? "checked" : ""} onchange="handletoggle('${text.id}')"/><input type="button" value="Delete" onclick="deleteItem('${text.id}')"/>${text.title}</li>`;
     
 }
+
+function render(){
+    todobox.innerHTML = makeList();
+}
+
 
 function makeList(){
     var listhtml = renderListContent()

@@ -51,6 +51,8 @@ function deleteItem(itemid){
 
     var foundindex = list.findIndex(l => l.id == itemid)
     list[foundindex].delete = !list[foundindex].delete
+    list = list.filter(n => n.id !== Number(itemid))
+    list.filter(n => console.log(n))
     console.log(list[foundindex])
     render()
 

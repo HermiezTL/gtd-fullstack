@@ -4,7 +4,6 @@ var demoItemTodoWhatever = {
     id : 1,
     title : "",
     done : false,
-    delete : false,
     rating : 0
 }
 var list = []
@@ -26,7 +25,7 @@ function addButton() {
 }
 
 function addTodo(newtitle, newRating){
-var newObject = {id : todoId, title : newtitle, done : false, delete : false, rating : newRating}
+var newObject = {id : todoId, title : newtitle, done : false, rating : newRating}
     list.push(newObject);
     list = list.sort(((a, b) => a - b))
     todoId ++
@@ -47,19 +46,14 @@ function handletoggle(itemid){
     render()
 }
 
-function deleteItem(itemid){
-
-    var foundindex = list.findIndex(l => l.id == itemid)
-    list[foundindex].delete = !list[foundindex].delete
+function removeTodo(itemid){
     list = list.filter(n => n.id !== Number(itemid))
-    list.filter(n => console.log(n))
-    console.log(list[foundindex])
     render()
 
 }
 
 function makeListItem(text) {
-    return `<li key="${text.id}"style="display: ${text.delete ? 'none' : 'block'}; color: ${text.done ? 'red' : 'black'};"><input type="checkbox" ${text.done ? "checked" : ""} onchange="handletoggle('${text.id}')"/><input type="button" value="Delete" onclick="deleteItem('${text.id}')"/>${text.title}</li>`;
+    return `<li key="${text.id}"style="display: ${text.delete ? 'none' : 'block'}; color: ${text.done ? 'red' : 'black'};"><input type="checkbox" ${text.done ? "checked" : ""} onchange="handletoggle('${text.id}')"/><input type="button" value="Remove" onclick="removeTodo('${text.id}')"/>${text.title}</li>`;
     
 }
 

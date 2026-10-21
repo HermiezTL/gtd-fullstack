@@ -60,3 +60,7 @@ select{
 li{
     display: block;
 }
+
+.done{
+    text-decoration: line-through red;
+}

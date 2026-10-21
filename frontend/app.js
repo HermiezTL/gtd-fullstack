@@ -38,8 +38,7 @@ function clearButton() {
     render()
 }
 
-function handletoggle(itemid){
-
+function toggleDone(itemid){
     var foundindex = list.findIndex(l => l.id == itemid)
     list[foundindex].done = !list[foundindex].done
     console.log(list[foundindex])
@@ -53,8 +52,7 @@ function removeTodo(itemid){
 }
 
 function makeListItem(text) {
-    return `<li key="${text.id}"style="color: ${text.done ? 'red' : 'black'};"><input type="checkbox" ${text.done ? "checked" : ""} onchange="handletoggle('${text.id}')"/><input type="button" value="Remove" onclick="removeTodo('${text.id}')"/>${text.title}</li>`;
-    
+    return `<li key="${text.id}"class="${text.done ? "done" : ""}"><input type="checkbox" ${text.done ? "checked" : ""} onchange="toggleDone('${text.id}')"/><input type="button" value="Remove" onclick="removeTodo('${text.id}')"/>${text.title}</li>`;
 }
 
 function render(){

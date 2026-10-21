@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(124, 99, 66);
+}
+
+#box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2cm;
+    font-size: 50px;
+    text-align: center;
+}
+
+fieldset{
+    background-color: rgb(165, 136, 98);
+    border-color: red;
+    border-width: 50px;
+    border-style:outset;
+    border-radius: 25px;
+}
+
+legend{
+    background-color: red;
+    border-style: double;
+    border-width: 10px;
+    border-radius: 10px;
+}
+
+input{
+    border-width: 10px;
+    border-color: black;
+    border-style:solid;
+    font-size: 30px;
+}
+
+#addButton, #clearButton, select{
+    padding: 20px;
+    font-size: 50px;
+    border-width: 10px;
+    border-radius: 25px;
+}
+
+#addButton{
+    background-color: blue;
+}
+
+#clearButton{
+    background-color: red;
+}
+
+select{
+    background-color:limegreen;
+    border-style:inherit;
+}
+
+#input{
+    font-size: 50px;
+}

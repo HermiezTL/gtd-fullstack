@@ -22,13 +22,18 @@ function startup() {
 function addButton() {
     var newtitle = document.querySelector("#input").value
     var newRating = document.querySelector("#rating").value
-    var newObject = {id : todoId, title : newtitle, done : false, delete : false, rating : newRating}
+    addTodo(newtitle, newRating)
+}
+
+function addTodo(newtitle, newRating){
+var newObject = {id : todoId, title : newtitle, done : false, delete : false, rating : newRating}
     list.push(newObject);
-    list = list.sort((a, b) => a - b)
+    list = list.sort(((a, b) => a - b))
     todoId ++
     console.log(list)
     render()
 }
+
 function clearButton() {
     list = [];
     render()

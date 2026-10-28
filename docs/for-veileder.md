@@ -9,7 +9,7 @@ Du er den eneste kontrollen som faktisk virker. Resten er stillas.
 - **Morgen, 10 min.** Eleven kjører `/start`. Du hører på oppvarmingsspørsmålet. Avtal hva «ferdig i dag» betyr.
 - **Dag 1: hele dagen sammen.** Første time på dag 3 og dag 5: par. Oppsett av Express og Docker er der nybegynnere mister en halv dag på en skrivefeil. Sitt ved siden av, la eleven skrive, du peker.
 - **Ettermiddag, 15 min.** Eleven forklarer dagens kode for deg uten Claude. Så ber du om én liten endring, live: «gjør så fjern-knappen spør først». Går det på fem minutter, er koden elevens. Går det ikke, er det der dere starter i morgen.
-- **Eleven kjører `/dagslutt`** og skriver loggen selv.
+- **Eleven kjører `/dagslutt`**, svarer på de tre spørsmålene og limer inn loggblokken Claude setter sammen av svarene.
 
 ## Hva du ser etter per dag
 

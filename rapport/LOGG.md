@@ -1,6 +1,6 @@
 # Logg
 
-Tre linjer per dag. Skriv dem selv, med egne ord, før du går hjem. `/dagslutt` stiller spørsmålene, du skriver svarene.
+Tre linjer per dag, med dine egne ord. `/dagslutt` stiller spørsmålene og setter sammen svarene dine. Du limer dem inn her før du går hjem.
 
 Dette er råstoffet til rapporten. Jo ærligere, jo bedre rapport.
 

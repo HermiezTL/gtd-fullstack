@@ -29,7 +29,7 @@ En Node-server med Express som svarer på `GET`, `POST` og `DELETE` under `/api/
 
 ## Oppgaver
 
-- [ ] 3.1 **Node fungerer.** `node -v` skal si 20.11 eller nyere. I `backend/`: `npm init -y`, legg til `"type": "module"` i `package.json`, `npm install express`. Åpne `package.json` og `node_modules/` og se hva som skjedde. Hvorfor ligger `node_modules` i `.gitignore`? Commit.
+- [x] 3.1 **Node fungerer.** `node -v` skal si 20.11 eller nyere. I `backend/`: `npm init -y`, legg til `"type": "module"` i `package.json`, `npm install express`. Åpne `package.json` og `node_modules/` og se hva som skjedde. Hvorfor ligger `node_modules` i `.gitignore`? Commit.
 - [ ] 3.2 **Hello, server.** `server.js` som lager en Express-app, svarer `"Hello from the server"` på `GET /` og lytter på port 3000. Start med `node --watch server.js`. Åpne `http://localhost:3000`. Endre teksten, lagre, refresh. Hva gjør `--watch`? Commit.
 - [ ] 3.3 **Lista bor på serveren.** Et array `todos` i `server.js` med to hardkodede todos. `GET /api/todos` svarer med arrayet som JSON. Åpne adressen i nettleseren. Du ser JSON. Det er API-et ditt. Commit.
 - [ ] 3.4 **Legg til via POST.** `app.use(express.json())` øverst. `POST /api/todos` leser `name` fra `req.body`, lager en todo med ny id og `done: false`, legger den i arrayet, svarer `201` med den nye todoen. Test fra terminalen:

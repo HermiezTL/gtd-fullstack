@@ -10,19 +10,36 @@ var list = []
 var todoId = 0
 
 var todobox = document.querySelector("#todoList");
+var errorbox = document.querySelector("#errorMsg");
+var teller = document.querySelector("#teller");
+
 
 
 function startup() {
     document.querySelector("#addButton").onclick = addButton;
     document.querySelector("#clearButton").onclick = clearButton;
     document.querySelector("#rating").value
+    if (loadTodos() !== null){
+        list = loadTodos()
+    }
+    render()
+    
 }
 
 function addButton() {
     var newtitle = document.querySelector("#input").value
     var newRating = document.querySelector("#rating").value
-    addTodo(newtitle, newRating)
+    errorbox.innerHTML = "";
+    if (newtitle === ""){
+        console.log("Du skrev ingen ting i feltet")
+        errorbox.innerHTML = "Du skrev ingen ting i feltet";
+    }
+    else{
+        addTodo(newtitle, newRating)
+    }
+    
 }
+        
 
 function addTodo(newtitle, newRating){
 var newObject = {id : todoId, title : newtitle, done : false, rating : newRating}
@@ -57,6 +74,8 @@ function makeListItem(text) {
 
 function render(){
     todobox.innerHTML = makeList();
+    teller.innerHTML = "Du har " + list.length + " todos"
+    saveTodos()
 }
 
 
@@ -73,3 +92,14 @@ function renderListContent(){
         return htmlString
 }
 
+
+function saveTodos(){
+    var text = JSON.stringify(list);
+    localStorage.setItem("Todos",text);
+}
+
+function loadTodos(){
+    var text = localStorage.getItem("Todos");
+    var todos = JSON.parse(text);
+    return todos
+}

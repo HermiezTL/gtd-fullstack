@@ -28,12 +28,12 @@ Koden din ligger på GitHub i din egen fork, delt i tre filer og ryddet i funksj
 
 ## Oppgaver
 
-- [ ] 2.1 **GitHub-konto og fork.** Lag konto hvis du ikke har. Fork `edgarbjorntvedt/gtd-fullstack` til din konto. Se at adressen nå har ditt brukernavn.
-- [ ] 2.2 **Clone og oppsett.** `gh auth login`, så `gh repo clone <deg>/gtd-fullstack`. Åpne mappa i VS Code med `code .`. Sett `git config --global user.name` og `user.email` hvis veileder ikke har gjort det. Test: `git status` sier «nothing to commit», og `git remote -v` viser både `origin` (din fork) og `upstream` (malen).
-- [ ] 2.3 **Flytt dag 1-koden inn i `frontend/`**, delt i `index.html`, `style.css` og `app.js`. Lå alt i én fil: del den opp, og se at det fortsatt virker når du åpner `index.html` i nettleseren. Første commit: `git add .`, `git commit -m "Add day 1 todo app"`, `git push`. Gå til GitHub og se koden din der.
-- [ ] 2.4 **Branch.** `git switch -c m2-frontend`. Resten av dagen skjer her. Test: `git branch` viser en stjerne ved `m2-frontend`.
-- [ ] 2.5 **Rydd i funksjoner.** Koden din skal ha minst `addTodo(name)`, `removeTodo(id)` og `render()`. Hver funksjon gjør én ting. Ingenting tegner på skjermen utenom `render()`. Test: appen virker akkurat som før. Commit.
-- [ ] 2.6 **Gjort-avkryssing.** Hver todo får `done: false` når den lages. `render()` lager en checkbox per todo. `toggleDone(id)` snur verdien. Gjorte todos får en CSS-klasse som streker dem over. Test: kryss av, kryss på. Commit.
+- [x] 2.1 **GitHub-konto og fork.** Lag konto hvis du ikke har. Fork `edgarbjorntvedt/gtd-fullstack` til din konto. Se at adressen nå har ditt brukernavn.
+- [x] 2.2 **Clone og oppsett.** `gh auth login`, så `gh repo clone <deg>/gtd-fullstack`. Åpne mappa i VS Code med `code .`. Sett `git config --global user.name` og `user.email` hvis veileder ikke har gjort det. Test: `git status` sier «nothing to commit», og `git remote -v` viser både `origin` (din fork) og `upstream` (malen).
+- [x] 2.3 **Flytt dag 1-koden inn i `frontend/`**, delt i `index.html`, `style.css` og `app.js`. Lå alt i én fil: del den opp, og se at det fortsatt virker når du åpner `index.html` i nettleseren. Første commit: `git add .`, `git commit -m "Add day 1 todo app"`, `git push`. Gå til GitHub og se koden din der.
+- [x] 2.4 **Branch.** `git switch -c m2-frontend`. Resten av dagen skjer her. Test: `git branch` viser en stjerne ved `m2-frontend`.
+- [x] 2.5 **Rydd i funksjoner.** Koden din skal ha minst `addTodo(name)`, `removeTodo(id)` og `render()`. Hver funksjon gjør én ting. Ingenting tegner på skjermen utenom `render()`. Test: appen virker akkurat som før. Commit.
+- [x] 2.6 **Gjort-avkryssing.** Hver todo får `done: false` når den lages. `render()` lager en checkbox per todo. `toggleDone(id)` snur verdien. Gjorte todos får en CSS-klasse som streker dem over. Test: kryss av, kryss på. Commit.
 - [ ] 2.7 **Hukommelse.** `saveTodos()` skriver arrayet til localStorage som JSON. `loadTodos()` leser det tilbake ved oppstart. Kall `saveTodos()` etter hver endring. Test: legg til tre, refresh, de er der. Åpne DevTools → Application → Local Storage og se dem. Commit.
 - [ ] 2.8 **Pull request.** `git push -u origin m2-frontend`. Åpne PR på GitHub. **Base skal være `main` i din egen fork**, ikke edgarbjorntvedt sin. Skriv tre linjer om hva du har gjort. Be veileder se på den. Merge. `git switch main`, `git pull`.
 

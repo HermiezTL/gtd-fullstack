@@ -14,9 +14,10 @@ Dette er råstoffet til rapporten. Jo ærligere, jo bedre rapport.
 
 ## Dag 2 –
 
-**Lærte:**
-**Vanskelig:**
-**Lurer på:**
+**Lærte:** Å lagre ting i localStorage.
+**Vanskelig:** JSON og localStorage var nytt for meg, jeg hadde ikke drevet med det før.
+**Lurer på:** Ingenting nå.
+
 
 ## Dag 3 –
 

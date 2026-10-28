@@ -7,7 +7,6 @@ var demoItemTodoWhatever = {
     rating : 0
 }
 var list = []
-var todoId = 0
 
 var todobox = document.querySelector("#todoList");
 var errorbox = document.querySelector("#errorMsg");
@@ -42,10 +41,9 @@ function addButton() {
         
 
 function addTodo(newtitle, newRating){
-var newObject = {id : todoId, title : newtitle, done : false, rating : newRating}
+var newObject = {id : Date.now(), title : newtitle, done : false, rating : newRating}
     list.push(newObject);
     list = list.sort(((a, b) => a - b))
-    todoId ++
     console.log(list)
     render()
 }

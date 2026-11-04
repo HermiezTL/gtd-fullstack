@@ -8,8 +8,17 @@ const todos = [
 
 
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import { readFileSync } from 'fs';
+import { parse } from 'yaml';
+
+const text = readFileSync('./openapi.yaml', 'utf8');
+const openapiDoc = parse(text);
+
+
 const app = express();
 app.use(express.json())
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(openapiDoc));
 const port = 3000;
 
 app.get('/', (req, res) => {

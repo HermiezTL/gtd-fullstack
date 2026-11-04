@@ -1,0 +1,21 @@
+openapi: 3.0.3
+info:
+  title: GTD API
+  version: 0.1.0
+paths:
+  /api/todos:
+    get:
+      summary: List all todos
+      responses:
+        "200":
+          description: A list of todos
+    post:
+      summary: Create a todo
+      responses:
+        "201":
+          description: Adds the todo to the list
+      requestBody:
+        content:
+          application/json:
+            example:
+              name: Run, Jump, Land, Roll

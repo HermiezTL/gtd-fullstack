@@ -13,24 +13,23 @@ app.use(express.json())
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.json(todos);
+    res.json(todos);
 });
 
 app.get("/api/todos", (req, res) => {
-  res.json(todos);
+    res.json(todos);
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
 
 app.post("/api/todos", (req, res) => {
-  const name = req.body.name;
-  console.log(name);
-
+    const name = req.body.name;
+    console.log(name);
     const todo = {id : Date.now(), title : name, done : false, rating : 4}
 
-  todos.push(todo)
-  res.status(201).json(todo)
+    todos.push(todo)
+    res.status(201).json(todo)
 });
 

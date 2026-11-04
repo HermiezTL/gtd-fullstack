@@ -19,3 +19,17 @@ paths:
           application/json:
             example:
               name: Run, Jump, Land, Roll
+  /api/todos/{id}:
+    delete:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema: { type: integer }
+      summary: Removes the todo from the todolist
+      responses:
+        "204":
+          description: Todo deleted
+        "404":
+          description: The dodo is missing
+

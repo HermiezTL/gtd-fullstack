@@ -29,18 +29,18 @@ En Node-server med Express som svarer på `GET`, `POST` og `DELETE` under `/api/
 
 ## Oppgaver
 
-- [ ] 3.1 **Node fungerer.** `node -v` skal si 20.11 eller nyere. I `backend/`: `npm init -y`, legg til `"type": "module"` i `package.json`, `npm install express`. Åpne `package.json` og `node_modules/` og se hva som skjedde. Hvorfor ligger `node_modules` i `.gitignore`? Commit.
-- [ ] 3.2 **Hello, server.** `server.js` som lager en Express-app, svarer `"Hello from the server"` på `GET /` og lytter på port 3000. Start med `node --watch server.js`. Åpne `http://localhost:3000`. Endre teksten, lagre, refresh. Hva gjør `--watch`? Commit.
-- [ ] 3.3 **Lista bor på serveren.** Et array `todos` i `server.js` med to hardkodede todos. `GET /api/todos` svarer med arrayet som JSON. Åpne adressen i nettleseren. Du ser JSON. Det er API-et ditt. Commit.
-- [ ] 3.4 **Legg til via POST.** `app.use(express.json())` øverst. `POST /api/todos` leser `name` fra `req.body`, lager en todo med ny id og `done: false`, legger den i arrayet, svarer `201` med den nye todoen. Test fra terminalen:
+- [x] 3.1 **Node fungerer.** `node -v` skal si 20.11 eller nyere. I `backend/`: `npm init -y`, legg til `"type": "module"` i `package.json`, `npm install express`. Åpne `package.json` og `node_modules/` og se hva som skjedde. Hvorfor ligger `node_modules` i `.gitignore`? Commit.
+- [x] 3.2 **Hello, server.** `server.js` som lager en Express-app, svarer `"Hello from the server"` på `GET /` og lytter på port 3000. Start med `node --watch server.js`. Åpne `http://localhost:3000`. Endre teksten, lagre, refresh. Hva gjør `--watch`? Commit.
+- [x] 3.3 **Lista bor på serveren.** Et array `todos` i `server.js` med to hardkodede todos. `GET /api/todos` svarer med arrayet som JSON. Åpne adressen i nettleseren. Du ser JSON. Det er API-et ditt. Commit.
+- [x] 3.4 **Legg til via POST.** `app.use(express.json())` øverst. `POST /api/todos` leser `name` fra `req.body`, lager en todo med ny id og `done: false`, legger den i arrayet, svarer `201` med den nye todoen. Test fra terminalen:
   ```bash
   curl -X POST localhost:3000/api/todos -H 'Content-Type: application/json' -d '{"name":"Buy milk"}'
   curl localhost:3000/api/todos
   ```
   Commit.
-- [ ] 3.5 **Swagger UI.** `npm install swagger-ui-express yaml`. Lag `backend/openapi.yaml` med skjelettet under, og legg til `POST` selv. Monter Swagger på `/docs`. Åpne `http://localhost:3000/docs`, trykk «Try it out» på POST, lag en todo. Commit.
-- [ ] 3.6 **Slett via DELETE.** `DELETE /api/todos/:id` finner todoen på `req.params.id`, fjerner den og svarer `204`. Finnes den ikke: `404` med `{ "error": "todo not found" }`. Legg ruten i `openapi.yaml`. Test begge utfall i Swagger. Commit.
-- [ ] 3.7 **Gullfisktesten.** Lag tre todos. Stopp serveren med Ctrl+C. Start den igjen. Hent lista. Skriv i `rapport/LOGG.md` hvorfor den er tom. Push, PR, merge.
+- [x] 3.5 **Swagger UI.** `npm install swagger-ui-express yaml`. Lag `backend/openapi.yaml` med skjelettet under, og legg til `POST` selv. Monter Swagger på `/docs`. Åpne `http://localhost:3000/docs`, trykk «Try it out» på POST, lag en todo. Commit.
+- [x] 3.6 **Slett via DELETE.** `DELETE /api/todos/:id` finner todoen på `req.params.id`, fjerner den og svarer `204`. Finnes den ikke: `404` med `{ "error": "todo not found" }`. Legg ruten i `openapi.yaml`. Test begge utfall i Swagger. Commit.
+- [x] 3.7 **Gullfisktesten.** Lag tre todos. Stopp serveren med Ctrl+C. Start den igjen. Hent lista. Skriv i `rapport/LOGG.md` hvorfor den er tom. Push, PR, merge.
 
 ### Skjelett til `openapi.yaml`
 

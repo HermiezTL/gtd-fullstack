@@ -14,15 +14,16 @@ Dette er råstoffet til rapporten. Jo ærligere, jo bedre rapport.
 
 ## Dag 2 –
 
-**Lærte:**
-**Vanskelig:**
-**Lurer på:**
+**Lærte:** Å lagre ting i localStorage.
+**Vanskelig:** JSON og localStorage var nytt for meg, jeg hadde ikke drevet med det før.
+**Lurer på:** Ingenting nå.
+
 
 ## Dag 3 –
 
-**Lærte:**
-**Vanskelig:**
-**Lurer på:**
+**Lærte:** å bruke openapi, GET, POST, DELETE, ting blir ikke lagret sånn som det gjør med localstorag fra dag 2, så da må det lagres på serveren når det skal gjøres.
+**Vanskelig:** Det jeg lærte er fortsatt vanskelig fordi det er nytt for meg akkurat som på dag 2
+**Lurer på:** ikke noe på
 
 ## Dag 4 –
 

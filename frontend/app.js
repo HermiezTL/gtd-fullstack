@@ -34,7 +34,7 @@ function clearButton() {
 
 function handletoggle(itemid){
 
-    var foundindex = list.findIndex(l => l.id == itemid)
+    var foundindex = list.findIndex(l => l.id ===itemid)
     list[foundindex].done = !list[foundindex].done
     console.log(list[foundindex])
     todobox.innerHTML = makeList();

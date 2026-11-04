@@ -21,9 +21,9 @@ Dette er råstoffet til rapporten. Jo ærligere, jo bedre rapport.
 
 ## Dag 3 –
 
-**Lærte:**
-**Vanskelig:**
-**Lurer på:**
+**Lærte:** å bruke openapi, GET, POST, DELETE
+**Vanskelig:** Det jeg lærte er fortsatt vanskelig fordi det er nytt for meg akkurat som på dag 2
+**Lurer på:** ikke noe på
 
 ## Dag 4 –
 

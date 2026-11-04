@@ -39,8 +39,8 @@ En Node-server med Express som svarer på `GET`, `POST` og `DELETE` under `/api/
   ```
   Commit.
 - [x] 3.5 **Swagger UI.** `npm install swagger-ui-express yaml`. Lag `backend/openapi.yaml` med skjelettet under, og legg til `POST` selv. Monter Swagger på `/docs`. Åpne `http://localhost:3000/docs`, trykk «Try it out» på POST, lag en todo. Commit.
-- [ ] 3.6 **Slett via DELETE.** `DELETE /api/todos/:id` finner todoen på `req.params.id`, fjerner den og svarer `204`. Finnes den ikke: `404` med `{ "error": "todo not found" }`. Legg ruten i `openapi.yaml`. Test begge utfall i Swagger. Commit.
-- [ ] 3.7 **Gullfisktesten.** Lag tre todos. Stopp serveren med Ctrl+C. Start den igjen. Hent lista. Skriv i `rapport/LOGG.md` hvorfor den er tom. Push, PR, merge.
+- [x] 3.6 **Slett via DELETE.** `DELETE /api/todos/:id` finner todoen på `req.params.id`, fjerner den og svarer `204`. Finnes den ikke: `404` med `{ "error": "todo not found" }`. Legg ruten i `openapi.yaml`. Test begge utfall i Swagger. Commit.
+- [x] 3.7 **Gullfisktesten.** Lag tre todos. Stopp serveren med Ctrl+C. Start den igjen. Hent lista. Skriv i `rapport/LOGG.md` hvorfor den er tom. Push, PR, merge.
 
 ### Skjelett til `openapi.yaml`
 

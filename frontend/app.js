@@ -18,10 +18,7 @@ function startup() {
     document.querySelector("#addButton").onclick = addButton;
     document.querySelector("#clearButton").onclick = clearButton;
     document.querySelector("#rating").value
-    if (loadTodos() !== null){
-        list = loadTodos()
-    }
-    render()
+    loadTodos()
     
 }
 
@@ -96,8 +93,9 @@ function saveTodos(){
     localStorage.setItem("Todos",text);
 }
 
-function loadTodos(){
-    var text = localStorage.getItem("Todos");
-    var todos = JSON.parse(text);
-    return todos
+async function loadTodos(){
+    const text = await fetch('/api/todos');
+    const todos = await text.json();
+    list = todos
+    render()
 }

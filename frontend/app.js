@@ -37,12 +37,9 @@ function addButton() {
 }
         
 
-function addTodo(newtitle, newRating){
-var newObject = {id : Date.now(), title : newtitle, done : false, rating : newRating}
-    list.push(newObject);
-    list = list.sort(((a, b) => a - b))
-    console.log(list)
-    render()
+async function addTodo(newtitle, newRating){
+    const text = await fetch('/api/todos', {method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: newtitle })});
+    await loadTodos()
 }
 
 function clearButton() {

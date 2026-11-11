@@ -11,15 +11,21 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
+import path from 'path';
+
 
 const text = readFileSync('./openapi.yaml', 'utf8');
 const openapiDoc = parse(text);
 
 
 const app = express();
+const frontendDir = path.join(import.meta.dirname, '..', 'frontend/');
+
 app.use(express.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(openapiDoc));
 const port = 3000;
+
+app.use(express.static(frontendDir))
 
 app.get('/', (req, res) => {
     res.json(todos);
@@ -54,5 +60,3 @@ app.delete("/api/todos/:id", (req, res) => {
         res.status(204).end()
     }
 })
-
-

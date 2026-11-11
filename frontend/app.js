@@ -54,9 +54,9 @@ function toggleDone(itemid){
     render()
 }
 
-function removeTodo(itemid){
-    list = list.filter(n => n.id !== Number(itemid))
-    render()
+async function removeTodo(itemid){
+    await fetch(`/api/todos/${itemid}`, {method: 'DELETE'})
+    await loadTodos()
 
 }
 

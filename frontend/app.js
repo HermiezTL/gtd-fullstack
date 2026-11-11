@@ -47,11 +47,10 @@ function clearButton() {
     render()
 }
 
-function toggleDone(itemid){
+async function toggleDone(itemid){
     var foundindex = list.findIndex(l => l.id == itemid)
-    list[foundindex].done = !list[foundindex].done
-    console.log(list[foundindex])
-    render()
+    await fetch(`/api/todos/${itemid}`, {method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ done: !list[foundindex].done })})
+    await loadTodos()
 }
 
 async function removeTodo(itemid){

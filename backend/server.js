@@ -5,8 +5,6 @@ const todos = [
 ]
     
 
-
-
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { readFileSync } from 'fs';
@@ -57,6 +55,19 @@ app.delete("/api/todos/:id", (req, res) => {
     } else {
         console.log("known");
         todos.splice(foundindex, 1)
+        res.status(204).end()
+    }
+})
+
+app.patch("/api/todos/:id", (req, res) => {
+    console.log(Number(req.params.id));
+    var foundindex = todos.findIndex(l => l.id === Number(req.params.id))
+    if (foundindex === -1) {
+        console.log("unknown");
+        res.status(404).json({ error: "todo not found"})
+    } else {
+        console.log("known");
+        todos[foundindex].done = req.body.done;
         res.status(204).end()
     }
 })

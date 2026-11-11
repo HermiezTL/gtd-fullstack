@@ -66,7 +66,6 @@ function makeListItem(text) {
 function render(){
     todobox.innerHTML = makeList();
     teller.innerHTML = "Du har " + list.length + " todos"
-    saveTodos()
 }
 
 
@@ -81,12 +80,6 @@ function renderListContent(){
             htmlString += makeListItem(item)
         }
         return htmlString
-}
-
-
-function saveTodos(){
-    var text = JSON.stringify(list);
-    localStorage.setItem("Todos",text);
 }
 
 async function loadTodos(){

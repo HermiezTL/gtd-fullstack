@@ -38,8 +38,11 @@ function addButton() {
         
 
 async function addTodo(newtitle, newRating){
+    try{
     const text = await fetch('/api/todos', {method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: newtitle })});
     await loadTodos()
+    }
+    catch (error) {errorbox.innerHTML = "The server ran into problem. Try again later"}
 }
 
 function clearButton() {
@@ -49,13 +52,22 @@ function clearButton() {
 
 async function toggleDone(itemid){
     var foundindex = list.findIndex(l => l.id == itemid)
-    await fetch(`/api/todos/${itemid}`, {method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ done: !list[foundindex].done })})
-    await loadTodos()
+    
+
+    try{
+        await fetch(`/api/todos/${itemid}`, {method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ done: !list[foundindex].done })})
+        await loadTodos()
+    }
+    catch (error) {errorbox.innerHTML = "A server problem occurred. Try again later"}
+
 }
 
 async function removeTodo(itemid){
-    await fetch(`/api/todos/${itemid}`, {method: 'DELETE'})
-    await loadTodos()
+    try{
+        await fetch(`/api/todos/${itemid}`, {method: 'DELETE'})
+        await loadTodos()
+    }
+    catch (error) {errorbox.innerHTML = "A server problem occurred. Try again later"}
 
 }
 
@@ -86,5 +98,6 @@ async function loadTodos(){
     const text = await fetch('/api/todos');
     const todos = await text.json();
     list = todos
+    errorbox.innerHTML = ""
     render()
 }

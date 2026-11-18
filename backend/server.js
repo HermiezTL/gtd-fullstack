@@ -1,6 +1,4 @@
-const todos = [ 
-    
-]
+
     
 
 import express from 'express';
@@ -8,7 +6,19 @@ import swaggerUi from 'swagger-ui-express';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 import path from 'path';
+import pool from './db.js';
 
+const todos = [ 
+    
+]
+
+pool.query('SELECT now()')
+    .then(res => {
+        console.log('Database connected! Time from DB:', res.rows[0].now);
+    })
+    .catch(err => {
+        console.error('Error while connecting to the DB:', err);
+    });
 
 const text = readFileSync('./openapi.yaml', 'utf8');
 const openapiDoc = parse(text);

@@ -27,13 +27,13 @@ Dette er råstoffet til rapporten. Jo ærligere, jo bedre rapport.
 
 ## Dag 4 –
 
-**Lærte:**
+**Lærte:**Lærte litt API ting, altså; å legge til, fjerne og endre ting i server ved bruk av API
 **Vanskelig:**
-**Lurer på:**
+**Lurer på:**Ikke noe nå
 
 ## Dag 5 –
 
-**Lærte:**
+**Lærte:**Lærte å lage en tabel med 3 fields med forskjellige datatyper. endret status på en av todosa i tabellen, og sortere etter navn, id.
 **Vanskelig:**
 **Lurer på:**
 

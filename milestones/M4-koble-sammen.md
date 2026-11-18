@@ -25,12 +25,12 @@ Frontend serveres fra Express og bruker `fetch` mot API-et for alt. localStorage
 ## Oppgaver
 
 - [x] 4.1 **Serveren serverer frontenden.** `express.static` med stien til `frontend/`. Åpne `http://localhost:3000` og se den gamle appen din, servert av din egen server. Åpne DevTools → Network, refresh, og se filene komme én og én. Commit.
-- [] 4.2 **Første fetch.** Gjør om `loadTodos()` så den henter fra `/api/todos` med `fetch`, gjør svaret om til JSON med `await`, legger det i `todos` og kaller `render()`. Funksjonen må bli `async`. Test: lista viser det serveren har, ikke det localStorage har. Commit.
-- [ ] 4.3 **Legg til via API.** `addTodo(name)` sender `POST` med `method`, `headers` med `Content-Type: application/json` og `body` som JSON-tekst. Etterpå: hent lista på nytt fra serveren. Ikke oppdater arrayet lokalt selv. Test: legg til, se requesten i Network, se svaret 201. Commit.
-- [ ] 4.4 **Fjern via API.** `removeTodo(id)` sender `DELETE`, så hent lista på nytt. Commit.
-- [ ] 4.5 **Kryss av via API.** Tok du ikke bonusen i går: lag `PATCH /api/todos/:id` på serveren som setter `done` fra body. `toggleDone(id)` sender `PATCH` med `{ "done": true }` eller `false`, så hent lista på nytt. Commit.
-- [ ] 4.6 **Fjern localStorage.** Slett `saveTodos()` og alt som har med localStorage å gjøre. Se i `git diff` hvor mye som forsvant. Mindre kode er bra. Test: åpne to faner, legg til i den ene, refresh den andre. Commit.
-- [ ] 4.7 **Når serveren er nede.** Stopp serveren. Trykk «legg til» i nettleseren. Hva skjer? Ingenting, stille. Det er den verste typen feil. Pakk fetch-kallene i `try`/`catch` og vis en melding på siden: «Server is down. Is it running?». Start serveren, meldingen skal forsvinne ved neste vellykkede kall. Commit, push, PR, merge.
+- [x] 4.2 **Første fetch.** Gjør om `loadTodos()` så den henter fra `/api/todos` med `fetch`, gjør svaret om til JSON med `await`, legger det i `todos` og kaller `render()`. Funksjonen må bli `async`. Test: lista viser det serveren har, ikke det localStorage har. Commit.
+- [x] 4.3 **Legg til via API.** `addTodo(name)` sender `POST` med `method`, `headers` med `Content-Type: application/json` og `body` som JSON-tekst. Etterpå: hent lista på nytt fra serveren. Ikke oppdater arrayet lokalt selv. Test: legg til, se requesten i Network, se svaret 201. Commit.
+- [x] 4.4 **Fjern via API.** `removeTodo(id)` sender `DELETE`, så hent lista på nytt. Commit.
+- [x] 4.5 **Kryss av via API.** Tok du ikke bonusen i går: lag `PATCH /api/todos/:id` på serveren som setter `done` fra body. `toggleDone(id)` sender `PATCH` med `{ "done": true }` eller `false`, så hent lista på nytt. Commit.
+- [x] 4.6 **Fjern localStorage.** Slett `saveTodos()` og alt som har med localStorage å gjøre. Se i `git diff` hvor mye som forsvant. Mindre kode er bra. Test: åpne to faner, legg til i den ene, refresh den andre. Commit.
+- [x] 4.7 **Når serveren er nede.** Stopp serveren. Trykk «legg til» i nettleseren. Hva skjer? Ingenting, stille. Det er den verste typen feil. Pakk fetch-kallene i `try`/`catch` og vis en melding på siden: «Server is down. Is it running?». Start serveren, meldingen skal forsvinne ved neste vellykkede kall. Commit, push, PR, merge.
 
 ## Ferdig når
 

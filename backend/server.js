@@ -1,7 +1,5 @@
 const todos = [ 
-    {id : 1, title : "Run", done : false, delete : false, rating : 1},
-    {id : 2, title : "Jump", done : false, delete : false, rating : 2},
-    {id : Date.now(), title : "Land", done : false, delete : false, rating : 3},
+    
 ]
     
 

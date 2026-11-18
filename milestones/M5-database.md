@@ -27,8 +27,8 @@ En Postgres-database kjører i Docker. Du har skrevet SQL for hånd. `GET`, `POS
 
 ## Oppgaver
 
-- [ ] 5.1 **Start elefanten.** Fra repo-rota: `docker compose up -d`. `docker ps` viser to containere. Åpne `http://localhost:8080`. Logg inn: System PostgreSQL, Server `db`, bruker `gtd`, passord `gtd`, database `gtd`. Les `docker-compose.yml` linje for linje med veileder. Du skal kunne si hva hver linje gjør.
-- [ ] 5.2 **SQL for hånd.** I Adminer → «SQL command». Skriv og kjør, én om gangen:
+- [x] 5.1 **Start elefanten.** Fra repo-rota: `docker compose up -d`. `docker ps` viser to containere. Åpne `http://localhost:8080`. Logg inn: System PostgreSQL, Server `db`, bruker `gtd`, passord `gtd`, database `gtd`. Les `docker-compose.yml` linje for linje med veileder. Du skal kunne si hva hver linje gjør.
+- [x] 5.2 **SQL for hånd.** I Adminer → «SQL command». Skriv og kjør, én om gangen:
   1. `CREATE TABLE todos` med `id SERIAL PRIMARY KEY`, `name TEXT NOT NULL`, `done BOOLEAN NOT NULL DEFAULT false`
   2. `INSERT` tre rader. Bare `name`, la databasen fikse resten.
   3. `SELECT * FROM todos`

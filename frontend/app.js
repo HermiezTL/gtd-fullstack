@@ -4,55 +4,82 @@ var demoItemTodoWhatever = {
     id : 1,
     title : "",
     done : false,
-    delete : false,
     rating : 0
 }
 var list = []
-var todoId = 0
 
 var todobox = document.querySelector("#todoList");
+var errorbox = document.querySelector("#errorMsg");
+var teller = document.querySelector("#teller");
+
+
 
 function startup() {
     document.querySelector("#addButton").onclick = addButton;
     document.querySelector("#clearButton").onclick = clearButton;
     document.querySelector("#rating").value
+    loadTodos()
+    
 }
 
 function addButton() {
     var newtitle = document.querySelector("#input").value
     var newRating = document.querySelector("#rating").value
-    var newObject = {id : todoId, title : newtitle, done : false, delete : false, rating : newRating}
-    list.push(newObject);
-    list = list.sort((a, b) => a - b)
-    todoId ++
-    console.log(list)
-    todobox.innerHTML = makeList();
+    errorbox.innerHTML = "";
+    if (newtitle === ""){
+        console.log("Du skrev ingen ting i feltet")
+        errorbox.innerHTML = "Du skrev ingen ting i feltet";
+    }
+    else{
+        addTodo(newtitle, newRating)
+    }
+    
 }
+        
+
+async function addTodo(newtitle, newRating){
+    try{
+    const text = await fetch('/api/todos', {method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: newtitle })});
+    await loadTodos()
+    }
+    catch (error) {errorbox.innerHTML = "The server ran into problem. Try again later"}
+}
+
 function clearButton() {
-    list = todobox.innerHTML = [];
+    list = [];
+    render()
 }
 
-function handletoggle(itemid){
-
-    var foundindex = list.findIndex(l => l.id ===itemid)
-    list[foundindex].done = !list[foundindex].done
-    console.log(list[foundindex])
-    todobox.innerHTML = makeList();
-}
-
-function deleteItem(itemid){
-
+async function toggleDone(itemid){
     var foundindex = list.findIndex(l => l.id == itemid)
-    list[foundindex].delete = !list[foundindex].delete
-    console.log(list[foundindex])
-    todobox.innerHTML = makeList();
+    
+
+    try{
+        await fetch(`/api/todos/${itemid}`, {method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ done: !list[foundindex].done })})
+        await loadTodos()
+    }
+    catch (error) {errorbox.innerHTML = "A server problem occurred. Try again later"}
+
+}
+
+async function removeTodo(itemid){
+    try{
+        await fetch(`/api/todos/${itemid}`, {method: 'DELETE'})
+        await loadTodos()
+    }
+    catch (error) {errorbox.innerHTML = "A server problem occurred. Try again later"}
 
 }
 
 function makeListItem(text) {
-    return `<li key="${text.id}"style="display: ${text.delete ? 'none' : 'block'}; color: ${text.done ? 'red' : 'black'};"><input type="checkbox" ${text.done ? "checked" : ""} onchange="handletoggle('${text.id}')"/><input type="button" value="Delete" onclick="deleteItem('${text.id}')"/>${text.title}</li>`;
-    
+    return `<li key="${text.id}"class="${text.done ? "done" : ""}"><input type="checkbox" ${text.done ? "checked" : ""} onchange="toggleDone('${text.id}')"/><input type="button" value="Remove" onclick="removeTodo('${text.id}')"/>${text.name}</li>`;
 }
+
+function render(){
+    todobox.innerHTML = makeList();
+    teller.innerHTML = "Du har " + list.length + " todos"
+}
+
 
 function makeList(){
     var listhtml = renderListContent()
@@ -67,3 +94,10 @@ function renderListContent(){
         return htmlString
 }
 
+async function loadTodos(){
+    const text = await fetch('/api/todos');
+    const todos = await text.json();
+    list = todos
+    errorbox.innerHTML = ""
+    render()
+}

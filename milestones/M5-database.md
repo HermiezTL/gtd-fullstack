@@ -27,8 +27,8 @@ En Postgres-database kjører i Docker. Du har skrevet SQL for hånd. `GET`, `POS
 
 ## Oppgaver
 
-- [ ] 5.1 **Start elefanten.** Fra repo-rota: `docker compose up -d`. `docker ps` viser to containere. Åpne `http://localhost:8080`. Logg inn: System PostgreSQL, Server `db`, bruker `gtd`, passord `gtd`, database `gtd`. Les `docker-compose.yml` linje for linje med veileder. Du skal kunne si hva hver linje gjør.
-- [ ] 5.2 **SQL for hånd.** I Adminer → «SQL command». Skriv og kjør, én om gangen:
+- [x] 5.1 **Start elefanten.** Fra repo-rota: `docker compose up -d`. `docker ps` viser to containere. Åpne `http://localhost:8080`. Logg inn: System PostgreSQL, Server `db`, bruker `gtd`, passord `gtd`, database `gtd`. Les `docker-compose.yml` linje for linje med veileder. Du skal kunne si hva hver linje gjør.
+- [x] 5.2 **SQL for hånd.** I Adminer → «SQL command». Skriv og kjør, én om gangen:
   1. `CREATE TABLE todos` med `id SERIAL PRIMARY KEY`, `name TEXT NOT NULL`, `done BOOLEAN NOT NULL DEFAULT false`
   2. `INSERT` tre rader. Bare `name`, la databasen fikse resten.
   3. `SELECT * FROM todos`
@@ -38,11 +38,11 @@ En Postgres-database kjører i Docker. Du har skrevet SQL for hånd. `GET`, `POS
   7. `SELECT ... ORDER BY name`
 
   Skriv alle sju spørringene inn i `rapport/LOGG.md`. Det er dagens viktigste notat.
-- [ ] 5.3 **Tabellen lages automatisk.** Lim `CREATE TABLE` inn i `db/init.sql`. Kjør `docker compose down -v` og `docker compose up -d`. Sjekk i Adminer at tabellen finnes, og er tom. Hva gjorde `-v`? Commit.
-- [ ] 5.4 **Node snakker med elefanten.** `npm install pg` i `backend/`. Lag `db.js` som eksporterer en `Pool` med connection string `postgres://gtd:gtd@localhost:5432/gtd`. I `server.js`: kjør `SELECT now()` ved oppstart og logg svaret. Test: tidspunktet printes når serveren starter. Commit.
-- [ ] 5.5 **GET fra databasen.** `GET /api/todos` kjører `SELECT * FROM todos ORDER BY id` og svarer med `rows`. Ruten må bli `async`. Test: legg inn en rad i Adminer, refresh appen, der er den. Det øyeblikket er grunnen til at folk blir utviklere. Commit.
-- [ ] 5.6 **POST til databasen.** `INSERT INTO todos (name) VALUES ($1) RETURNING *`. Svar med den nye raden. Test fra appen og se raden i Adminer. Commit.
-- [ ] 5.7 **DELETE fra databasen.** `DELETE FROM todos WHERE id = $1`. 404 hvis `rowCount` er 0. Slett `todos`-arrayet fra `server.js`. Det trengs ikke lenger. Commit.
+- [x] 5.3 **Tabellen lages automatisk.** Lim `CREATE TABLE` inn i `db/init.sql`. Kjør `docker compose down -v` og `docker compose up -d`. Sjekk i Adminer at tabellen finnes, og er tom. Hva gjorde `-v`? Commit.
+- [x] 5.4 **Node snakker med elefanten.** `npm install pg` i `backend/`. Lag `db.js` som eksporterer en `Pool` med connection string `postgres://gtd:gtd@localhost:5432/gtd`. I `server.js`: kjør `SELECT now()` ved oppstart og logg svaret. Test: tidspunktet printes når serveren starter. Commit.
+- [x] 5.5 **GET fra databasen.** `GET /api/todos` kjører `SELECT * FROM todos ORDER BY id` og svarer med `rows`. Ruten må bli `async`. Test: legg inn en rad i Adminer, refresh appen, der er den. Det øyeblikket er grunnen til at folk blir utviklere. Commit.
+- [x] 5.6 **POST til databasen.** `INSERT INTO todos (name) VALUES ($1) RETURNING *`. Svar med den nye raden. Test fra appen og se raden i Adminer. Commit.
+- [x] 5.7 **DELETE fra databasen.** `DELETE FROM todos WHERE id = $1`. 404 hvis `rowCount` er 0. Slett `todos`-arrayet fra `server.js`. Det trengs ikke lenger. Commit.
 - [ ] 5.8 **Elefanttesten.** Lag tre todos. Stopp serveren. Start den. Lista er der. Stopp databasen med `docker compose down` (uten `-v`). Start den. Lista er der fortsatt. Skriv i loggen hvor dataene faktisk bor. Push, PR, merge.
 
 ## Ferdig når

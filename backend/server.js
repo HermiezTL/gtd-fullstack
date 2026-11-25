@@ -1,16 +1,9 @@
-
-    
-
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 import path from 'path';
 import pool from './db.js';
-
-const todos = [ 
-    
-]
 
 pool.query('SELECT now()')
     .then(res => {
@@ -40,28 +33,27 @@ app.listen(port, () => {
 });
 
 
-app.delete("/api/todos/:id", (req, res) => {
+app.delete("/api/todos/:id", async (req, res) => {
     console.log(Number(req.params.id));
-    var foundindex = todos.findIndex(l => l.id === Number(req.params.id))
-    if (foundindex === -1) {
+    const result = await pool.query('DELETE FROM todos WHERE id = $1', [req.params.id])
+
+    if (result.rowCount === 0) {
         console.log("unknown");
         res.status(404).json({ error: "todo not found"})
     } else {
         console.log("known");
-        todos.splice(foundindex, 1)
         res.status(204).end()
     }
 })
 
-app.patch("/api/todos/:id", (req, res) => {
+app.patch("/api/todos/:id", async (req, res) => {
     console.log(Number(req.params.id));
-    var foundindex = todos.findIndex(l => l.id === Number(req.params.id))
-    if (foundindex === -1) {
+    const result = await pool.query('UPDATE todos SET done = $1 WHERE id = $2', [req.body.done, req.params.id])
+    if (result.rowCount === 0) {
         console.log("unknown");
         res.status(404).json({ error: "todo not found"})
     } else {
         console.log("known");
-        todos[foundindex].done = req.body.done;
         res.status(204).end()
     }
 })

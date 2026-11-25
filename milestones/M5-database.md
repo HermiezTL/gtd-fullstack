@@ -41,8 +41,8 @@ En Postgres-database kjører i Docker. Du har skrevet SQL for hånd. `GET`, `POS
 - [x] 5.3 **Tabellen lages automatisk.** Lim `CREATE TABLE` inn i `db/init.sql`. Kjør `docker compose down -v` og `docker compose up -d`. Sjekk i Adminer at tabellen finnes, og er tom. Hva gjorde `-v`? Commit.
 - [x] 5.4 **Node snakker med elefanten.** `npm install pg` i `backend/`. Lag `db.js` som eksporterer en `Pool` med connection string `postgres://gtd:gtd@localhost:5432/gtd`. I `server.js`: kjør `SELECT now()` ved oppstart og logg svaret. Test: tidspunktet printes når serveren starter. Commit.
 - [x] 5.5 **GET fra databasen.** `GET /api/todos` kjører `SELECT * FROM todos ORDER BY id` og svarer med `rows`. Ruten må bli `async`. Test: legg inn en rad i Adminer, refresh appen, der er den. Det øyeblikket er grunnen til at folk blir utviklere. Commit.
-- [ ] 5.6 **POST til databasen.** `INSERT INTO todos (name) VALUES ($1) RETURNING *`. Svar med den nye raden. Test fra appen og se raden i Adminer. Commit.
-- [ ] 5.7 **DELETE fra databasen.** `DELETE FROM todos WHERE id = $1`. 404 hvis `rowCount` er 0. Slett `todos`-arrayet fra `server.js`. Det trengs ikke lenger. Commit.
+- [x] 5.6 **POST til databasen.** `INSERT INTO todos (name) VALUES ($1) RETURNING *`. Svar med den nye raden. Test fra appen og se raden i Adminer. Commit.
+- [x] 5.7 **DELETE fra databasen.** `DELETE FROM todos WHERE id = $1`. 404 hvis `rowCount` er 0. Slett `todos`-arrayet fra `server.js`. Det trengs ikke lenger. Commit.
 - [ ] 5.8 **Elefanttesten.** Lag tre todos. Stopp serveren. Start den. Lista er der. Stopp databasen med `docker compose down` (uten `-v`). Start den. Lista er der fortsatt. Skriv i loggen hvor dataene faktisk bor. Push, PR, merge.
 
 ## Ferdig når

@@ -33,26 +33,12 @@ const port = 3000;
 
 app.use(express.static(frontendDir))
 
-app.get('/', (req, res) => {
-    res.json(todos);
-});
 
-app.get("/api/todos", (req, res) => {
-    res.json(todos);
-});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
 
-app.post("/api/todos", (req, res) => {
-    const name = req.body.name;
-    console.log(name);
-    const todo = {id : Date.now(), title : name, done : false, rating : 4}
-
-    todos.push(todo)
-    res.status(201).json(todo)
-});
 
 app.delete("/api/todos/:id", (req, res) => {
     console.log(Number(req.params.id));
@@ -79,3 +65,20 @@ app.patch("/api/todos/:id", (req, res) => {
         res.status(204).end()
     }
 })
+
+
+
+app.get("/api/todos", async (req, res) => {
+   const result = await pool.query('SELECT * FROM todos ORDER BY id')
+   res.json(result.rows);
+});
+
+
+app.post("/api/todos", async (req, res) => {
+    const name = req.body.name;
+    const result = await pool.query(
+        'INSERT INTO todos (name) VALUES ($1) RETURNING *',
+        [name]
+    );
+    res.status(201).json(result.rows[0]);
+});

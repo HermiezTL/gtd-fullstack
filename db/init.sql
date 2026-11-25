@@ -5,4 +5,8 @@
 -- M5, task 5.3:  paste your CREATE TABLE todos (...) below this line.
 -- M7b, task 7b.1: contexts goes ABOVE todos (todos will reference it).
 
-CREATE TABLE
+CREATE TABLE IF NOT EXISTS todos (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    done BOOLEAN NOT NULL DEFAULT false
+);
